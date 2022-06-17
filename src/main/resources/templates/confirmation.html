@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>新規登録 確認</title>
+<link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<h3>こちらの内容で登録してよろしいですか？</h3>
+	<ul>
+		<li th:text="'id： ' + ${session.temporaryMemberForm.id}">
+		<li th:text="'name： ' + ${session.temporaryMemberForm.name}">
+		<li th:text="'pasword： ' + ${session.temporaryMemberForm.password}">
+	</ul>
+	<form th:action="@{/diary/registrationcomplete}" method="post">
+	<button>登録</button>
+	</form>
+	<form th:action="@{/diary/newmember}" method="post">
+	<button>戻る</button>
+	</form>
+</body>
+</html>

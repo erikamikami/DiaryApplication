@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>日記一覧</title>
+<link rel="icon" href="/img/favicon.ico">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<h3>日記一覧</h3>
+	<br>
+	<div class="max-width">
+	<div th:each="x : ${session.diaryList}">
+		<span th:text="${x.date}"></span><br>
+		<span>----------------</span><br>
+		<span th:text="${x.contents}"></span><br>
+		<form class="inlineblock-class" th:action="@{/diary/editing}" method="post">
+			<input type="hidden" name=diaryId th:value="${x.id}">
+			<button>編集</button>
+		</form>
+		<form class="inlineblock-class" th:action="@{/diary/diarydelete}" method="post">
+			<input type="hidden" name=diaryId th:value="${x.id}">
+			<button>削除</button>
+		</form>
+	</div><br>
+	</div>
+	<a th:href="@{/diary/top}">トップ画面</a>へ
+</body>
+</html>

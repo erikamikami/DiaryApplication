@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>新規会員登録</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" media="all">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<div>
+		<h3>新規会員登録</h3>
+	</div>
+	<div>
+        <ul>
+            <form th:action="@{/diary/confirmation}" th:object="${memberForm}" method="post">
+                <div class="error" th:errors="*{id}"></div>
+                <div class="error" th:text="${alreadyMember}"></div>
+                <li>id：<input type="text" name="id" th:field="*{id}"></li>
+                <div class="error" th:errors="*{name}"></div>
+                <li>name：<input type="text" name="name" th:field="*{name}"></li>
+                <div class="error" th:errors="*{password}"></div></li>
+                <li>password：<input type="text" name="password" th:field="*{password}"></li>
+                <button>登録</button>
+            </form>
+        </ul>
+	</div>
+	<div>
+		ログインは<a th:href="@{/diary/login}">こちら</a>
+	</div>
+</body>
+</html>

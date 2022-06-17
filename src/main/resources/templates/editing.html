@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>編集</title>
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<div th:each="x : ${session.temporaryDiary}">
+		<form th:action="@{/diary/updatealldiarycheck}" method="post">
+			日付：<input type="date" th:value="${x.date}" name="date"><br>
+            <br>
+			<label th:for="*{contents}"></label>
+    		<textarea rows="30" cols="60" th:id="*{contents}" th:text="${x.contents}" name="contents">
+    		</textarea><br>
+			<button>完了</button>
+		</form>
+        <form th:action="@{/diary/top}">
+            <button>戻る</button>
+        </form>
+	</div>
+</body>
+</html>

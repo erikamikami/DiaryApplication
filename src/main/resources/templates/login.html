@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>ログイン</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css" media="all">
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<div>
+		<h3>ログイン</h3>
+	</div>
+	<div>
+        <ul>
+            <div class="error" th:text="${loginerror}"></div>
+            <form th:action="@{/diary/check}" method="post">
+                <li>id：<input type="text" name="id"></li>
+                <li>password：<input type="text" name="password"></li>
+                <button>ログイン</button>
+            </form>
+        </ul>
+	</div>
+	<div>
+		会員登録がまだの方は<a th:href="@{/diary/newmember}">こちら</a>
+	</div>
+</body>
+</html>

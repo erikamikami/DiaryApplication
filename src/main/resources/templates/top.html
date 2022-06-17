@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>トップ画面</title>
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+        <header class="header">
+            <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+        </header>
+        <div class="contents">
+        <form th:action="@{/diary/accountinfo}" method="post">
+        	<button>アカウント情報</button>
+        </form>
+        <form th:action="@{/diary/diarywrite}" method="post">
+        	<button>日記を書く</button>
+        </form>
+        <form th:action="@{/diary/alldiary}" method="post">
+        	<button>日記一覧</button>
+        </form>
+        </div>
+    </body>
+    </html>

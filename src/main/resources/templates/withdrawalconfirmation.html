@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<title>アカウント情報</title>
+</head>
+<body>
+    <!-- 共通ヘッダー -->
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<h3>退会手続き</h3>
+	<p class="red">会員を退会された場合は、登録されているアカウント情報や日記の記録すべて削除されます。<br>
+	削除されたデータは復元することができません。<br>
+	<h3>アカウント情報</h3>
+    <ul>
+        <div th:each="x : ${session.memberinfo}">
+            <li>id：<span th:text="${x.id}"></span></li>
+            <li>name：<span th:text="${x.name}"></span></li>
+        </div>
+    </ul>
+	<form class="inlineblock-class" th:action="@{/diary/withdrawalcompletion}" method="post">
+		<button>退会する</button>
+	</form>
+	<form class="inlineblock-class" th:action="@{/diary/top}" method="post">
+		<button>トップ画面に戻る</button>
+	</form>
+</body>
+</html>

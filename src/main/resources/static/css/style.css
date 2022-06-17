@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+.error{
+	color: red;
+	font-size: 13px;
+}
+
+
+/* 共通ヘッダー */
+.header{
+    background-color: #042940;
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 共通 */
+body{
+    margin: 0 auto;
+    width:100%;
+    text-align:center;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #DBF2E2;
+}
+
+
+.padding-class{
+    padding: 10px;
+}
+
+.inlineblock-class{
+    display: inline-block;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    padding: 10px;
+}
+
+button{
+    margin: 10px;
+    font-size: 14px;
+    color: #F26430;
+    font-weight: bold;
+    border: solid 2px #042940;
+    background-color: #DBF227;
+    padding: 5px 50px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+button:hover{
+    margin: 10px;
+    font-size: 14px;
+    color: #F26430;
+    font-weight: bold;
+    border: solid 2px #042940;
+    background-color: #DBF227;
+    padding: 5px 50px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    opacity: 0.6;
+}
+
+.bold{
+	display:inline;
+	font-weight: bold;
+	color: #F26430;
+}
+
+.max-width{
+	margin: 0 10em;
+}
+
+.red{
+	color: red;
+}

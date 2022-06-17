@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>アカウント情報</title>
+<link rel="icon" href="/img/favicon.ico">
+<!-- css -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Googleフォント -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <img class="headerlogo" src="/img/simplediary.png" alt="ロゴ">
+    </header>
+	<h4>アカウント情報</h4>
+	<div class="margin-class padding-class" th:each="x : ${session.memberinfo}">
+		id：<span class="bold" th:text="${x.id}"></span><br><br>
+		name：<span class="bold" th:text="${x.name}"></span><br>
+	</div><br>
+	<div class="margin-class padding-class">
+		トップ画面は<a class="padding-class inlineblock-class" th:href="@{/diary/top}">こちら</a><br>
+		ログアウトは<a class="padding-class inlineblock-class" th:href="@{/diary/logout}">こちら</a><br>
+		退会は<a class="padding-class inlineblock-class" th:href="@{/diary/withdrawal}">こちら</a>
+	</div>
+</body>
+</html>
